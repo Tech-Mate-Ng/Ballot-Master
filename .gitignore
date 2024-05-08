@@ -1,0 +1,5 @@
+# Private files
+.env
+
+# Python venv
+bp/
