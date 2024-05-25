@@ -3,12 +3,6 @@
 # This script is used to set up a development environment for a project.
 # It installs necessary prerequisites, sets up a virtual environment, and creates an .env file for environment variables.
 
-# Ensure the script is run as a superuser
-if [[ $EUID -ne 0 ]]; then
-	echo "This script must be run as root. Please use sudo."
-	exit 1
-fi
-
 # Update the package list and install prerequisites
 echo "Updating package list and installing prerequisites..."
 apt-get update && apt-get install -y \
