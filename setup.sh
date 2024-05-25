@@ -22,6 +22,7 @@ if ! command -v pipx &>/dev/null; then
 	export PATH=$PATH:/root/.local/bin
 
 	# Add pipx to the PATH permanently
+	echo "Adding pipx to the PATH permanently..."
 	echo 'export PATH=$PATH:~/.local/bin' >>~/.bashrc
 	echo 'export PATH=$PATH:/root/.local/bin' >>~/.bashrc
 fi
