@@ -14,9 +14,10 @@ apt-get update && apt-get install -y \
 if ! command -v pipx &>/dev/null; then
 	echo "Installing pipx..."
 	sudo apt update -y
-	sudo apt install pipx
+	sudo apt install pipx -y
 	pipx ensurepath
 	sudo pipx ensurepath --global # optional to allow pipx actions with --global argument
+	ehco '/root/.local/bin' >>~/.bashrc
 	source ~/.bashrc
 fi
 
