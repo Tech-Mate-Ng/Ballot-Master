@@ -3,8 +3,8 @@
 This module provides utility functions for downloading files and data from URLs.
 """
 import base64
-import requests
 import logging
+import requests
 
 
 def download_file(url, filename):
@@ -18,10 +18,10 @@ def download_file(url, filename):
     Returns:
             None
     """
-    response = requests.get(url)
+    response = requests.get(url, timeout=10)
     with open(filename, "wb") as file:
         file.write(response.content)
-    logging.info(f"Downloaded file: {filename}")
+    logging.info("Downloaded file: %s", url)
 
 
 def download_data_url(url, filename):
@@ -35,8 +35,8 @@ def download_data_url(url, filename):
     Returns:
             None
     """
-    header, data = url.split(",", 1)
+    _, data = url.split(",", 1)
     file_data = base64.b64decode(data)
     with open(filename, "wb") as file:
         file.write(file_data)
-    logging.info(f"Downloaded data from URL: {url}")
+    logging.info("Downloaded data from URL: %s", url)

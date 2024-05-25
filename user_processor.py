@@ -4,9 +4,9 @@ This script processes user data and makes accommodation reservations for eligibl
 """
 
 import time
-import requests
 import json
 import logging
+import requests
 from credentials import get_credentials
 
 
@@ -25,8 +25,8 @@ def process_user(i):
     """
     username, password, hall, day = get_credentials(i)
     if day != time.strftime("%d"):
-        logging.info(f"Skipping user {i} as it is not their day")
-        logging.info(f"Day: {day} Current Day: {time.strftime('%d')}")
+        logging.info("Skipping user %d as it is not their day", i)
+        logging.info("Day: %s Current Day: %s", day, time.strftime("%d"))
         return
 
     base_url = "http://studentportalbeta.unilag.edu.ng/"
@@ -47,12 +47,12 @@ def process_user(i):
             data={"MatricNo": username, "Password": password},
         )
         if response.status_code != 200:
-            logging.error(f"Failed to login user {i}")
+            logging.error("Failed to login user %d", i)
             return
-        else:
-            logging.info(
-                f"Successfully logged in {json.loads(response.text)['Data']['Student']['FullName']}"
-            )
+        logging.info(
+            "Successfully logged in %s",
+            json.loads(response.text)["Data"]["Student"]["FullName"],
+        )
 
         s.cookies["_auth"] = response.text
         general_header = {
@@ -66,7 +66,7 @@ def process_user(i):
             f"{base_url}accomodation/accomodationHalls",
             headers=general_header,
         )
-        logging.info(f"Response from accomodationHalls: {response.text}")
+        logging.info("Response from accomodationHalls: %s", response.text)
 
         res = json.dumps({"HallId": hall_id_dict[hall]})
         response = s.post(
@@ -75,5 +75,5 @@ def process_user(i):
             headers=general_header,
         )
         logging.info(
-            f"Response from saveAccommodationReservation: {response.text}"
+            "Response from saveAccommodationReservation: %s", response.text
         )
