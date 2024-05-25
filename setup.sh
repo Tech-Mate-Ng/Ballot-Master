@@ -22,10 +22,8 @@ if ! command -v pipx &>/dev/null; then
 fi
 
 # Install Poetry using pipx
-if ! command -v poetry &>/dev/null; then
-	echo "Installing Poetry..."
-	pipx install poetry
-fi
+echo "Installing Poetry..."
+pipx install poetry
 
 # Navigate to the project directory
 PROJECT_DIR=$(dirname "$0")
