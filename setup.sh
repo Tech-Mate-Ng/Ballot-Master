@@ -20,6 +20,10 @@ if ! command -v pipx &>/dev/null; then
 	# Add pipx to the current shell session
 	export PATH=$PATH:~/.local/bin
 	export PATH=$PATH:/root/.local/bin
+
+	# Add pipx to the PATH permanently
+	echo 'export PATH=$PATH:~/.local/bin' >>~/.bashrc
+	echo 'export PATH=$PATH:/root/.local/bin' >>~/.bashrc
 fi
 
 # Navigate to the project directory
