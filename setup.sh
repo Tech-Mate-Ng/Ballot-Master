@@ -19,6 +19,7 @@ if ! command -v pipx &>/dev/null; then
 	pipx ensurepath --global # optional to allow pipx actions in global scope. See "Global installation" section below.
 	# Add pipx to the current shell session
 	export PATH=$PATH:~/.local/bin
+	export PATH=$PATH:/root/.local/bin
 fi
 
 # Install Poetry using pipx
