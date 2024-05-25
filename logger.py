@@ -19,7 +19,7 @@ def configure_logging():
             None
     """
     logging.basicConfig(
-        filename="/home/ukeme/Desktop/bp/log.txt",
+        filename="logs.log",
         level=logging.INFO,
         format="%(asctime)s - %(levelname)s - %(message)s",
     )
