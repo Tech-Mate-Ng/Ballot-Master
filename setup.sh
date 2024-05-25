@@ -14,17 +14,16 @@ apt-get update && apt-get install -y \
 if ! command -v pipx &>/dev/null; then
 	echo "Installing pipx..."
 	apt update -y
-	apt install pipx -y
-	pipx ensurepath
-	pipx ensurepath --global # optional to allow pipx actions in global scope. See "Global installation" section below.
-	# Add pipx to the current shell session
-	export PATH=$PATH:~/.local/bin
-	export PATH=$PATH:/root/.local/bin
+	python3 -m pip install --user pipx
+	python3 -m pipx ensurepath
+	sudo pipx ensurepath --global # optional to allow pipx actions with --global argument
+	# export PATH=$PATH:~/.local/bin
+	# export PATH=$PATH:/root/.local/bin
 
-	# Add pipx to the PATH permanently
-	echo "Adding pipx to the PATH permanently..."
-	echo 'export PATH=$PATH:~/.local/bin' >>~/.bashrc
-	echo 'export PATH=$PATH:/root/.local/bin' >>~/.bashrc
+	# # Add pipx to the PATH permanently
+	# echo "Adding pipx to the PATH permanently..."
+	# echo 'export PATH=$PATH:~/.local/bin' >>~/.bashrc
+	# echo 'export PATH=$PATH:/root/.local/bin' >>~/.bashrc
 fi
 
 # Navigate to the project directory
@@ -42,7 +41,7 @@ source bp/bin/activate
 
 # Install Poetry using pipx
 echo "Installing Poetry..."
-pipx install poetry --force
+pipx install poetry
 
 # Install dependencies using Poetry
 echo "Installing dependencies using Poetry..."
