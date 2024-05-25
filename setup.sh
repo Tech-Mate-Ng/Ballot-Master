@@ -53,4 +53,12 @@ else
 	echo ".env file already exists."
 fi
 
+# Create the log file if it doesn't exist
+if [ ! -f log.txt ]; then
+	echo "Creating log file..."
+	touch log.txt
+else
+	echo "Log file already exists."
+fi
+
 echo "Setup complete. You can now run your application using 'poetry run <command>'."
