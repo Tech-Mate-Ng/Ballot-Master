@@ -25,6 +25,10 @@ fi
 PROJECT_DIR=$(dirname "$0")
 cd "$PROJECT_DIR" || exit
 
+# Install Poetry using pipx
+echo "Installing Poetry..."
+pipx install poetry
+
 # Create a virtual environment called 'bp'
 echo "Creating virtual environment..."
 python3 -m venv bp
