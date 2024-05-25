@@ -22,10 +22,6 @@ if ! command -v pipx &>/dev/null; then
 	export PATH=$PATH:/root/.local/bin
 fi
 
-# Install Poetry using pipx
-echo "Installing Poetry..."
-pipx install poetry --force
-
 # Navigate to the project directory
 PROJECT_DIR=$(dirname "$0")
 cd "$PROJECT_DIR" || exit
@@ -38,6 +34,10 @@ python3 -m venv bp
 echo "Activating virtual environment..."
 # shellcheck source=/dev/null
 source bp/bin/activate
+
+# Install Poetry using pipx
+echo "Installing Poetry..."
+pipx install poetry --force
 
 # Install dependencies using Poetry
 echo "Installing dependencies using Poetry..."
