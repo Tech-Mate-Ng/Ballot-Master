@@ -13,10 +13,10 @@ apt-get update && apt-get install -y \
 # Install pipx if not already installed
 if ! command -v pipx &>/dev/null; then
 	echo "Installing pipx..."
-	sudo apt update -y
-	sudo apt install pipx -y
+	apt update -y
+	apt install pipx -y
 	pipx ensurepath
-	sudo pipx ensurepath --global # optional to allow pipx actions in global scope. See "Global installation" section below.
+	pipx ensurepath --global # optional to allow pipx actions in global scope. See "Global installation" section below.
 	# Add pipx to the current shell session
 	export PATH=$PATH:~/.local/bin
 fi
