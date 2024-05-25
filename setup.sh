@@ -3,9 +3,6 @@
 # This script is used to set up a development environment for a project.
 # It installs necessary prerequisites, sets up a virtual environment, and creates an .env file for environment variables.
 
-# Add missing import statement for the os module
-import os
-
 # Ensure the script is run as a superuser
 if [[ $EUID -ne 0 ]]; then
 	echo "This script must be run as root. Please use sudo."
@@ -22,8 +19,8 @@ apt-get update && apt-get install -y \
 # Install pipx if not already installed
 if ! command -v pipx &>/dev/null; then
 	echo "Installing pipx..."
-	sudo apt update
-	sudo apt install pipx
+	sudo apt update -y
+	sudo apt install pipx -y
 	pipx ensurepath
 	sudo pipx ensurepath --global # optional to allow pipx actions with --global argument
 	# Add pipx to the current shell session
@@ -40,8 +37,17 @@ fi
 PROJECT_DIR=$(dirname "$0")
 cd "$PROJECT_DIR" || exit
 
-# Set up the virtual environment and install dependencies
-echo "Setting up the virtual environment and installing dependencies..."
+# Create a virtual environment called 'bp'
+echo "Creating virtual environment..."
+python3 -m venv bp
+
+# Activate the virtual environment
+echo "Activating virtual environment..."
+# shellcheck source=/dev/null
+source bp/bin/activate
+
+# Install dependencies using Poetry
+echo "Installing dependencies using Poetry..."
 poetry install
 
 # Create .env file if it doesn't exist
