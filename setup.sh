@@ -22,7 +22,7 @@ if ! command -v pipx &>/dev/null; then
 	sudo apt update -y
 	sudo apt install pipx -y
 	pipx ensurepath
-	sudo pipx ensurepath --global # optional to allow pipx actions with --global argument
+	sudo pipx ensurepath --global # optional to allow pipx actions in global scope. See "Global installation" section below.
 	# Add pipx to the current shell session
 	export PATH=$PATH:~/.local/bin
 fi
