@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# This script sets up the environment for a project called 'bp'.
+# It installs Poetry, creates a virtual environment, activates it, installs dependencies using Poetry,
+# creates a .env file if it doesn't exist, and creates a log file if it doesn't exist.
+
 # Install Poetry using pipx
 echo "Installing Poetry..."
 pipx install poetry
@@ -12,10 +16,6 @@ python3 -m venv bp
 echo "Activating virtual environment..."
 # shellcheck source=/dev/null
 source bp/bin/activate
-
-# Install Poetry using pipx
-echo "Installing Poetry..."
-pipx install poetry
 
 # Install dependencies using Poetry
 echo "Installing dependencies using Poetry..."
