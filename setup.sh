@@ -23,7 +23,7 @@ fi
 
 # Install Poetry using pipx
 echo "Installing Poetry..."
-pipx install poetry
+pipx install poetry --force
 
 # Navigate to the project directory
 PROJECT_DIR=$(dirname "$0")
