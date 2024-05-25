@@ -17,7 +17,7 @@ if ! command -v pipx &>/dev/null; then
 	sudo apt install pipx -y
 	pipx ensurepath
 	sudo pipx ensurepath --global # optional to allow pipx actions with --global argument
-	echo 'export PATH="$PATH:/root/.local/bin"' | sudo tee -a ~/.bashrc
+	echo 'export PATH="$PATH:/root/.local/bin"' | tee -a ~/.bashrc
 	source ~/.bashrc
 fi
 
