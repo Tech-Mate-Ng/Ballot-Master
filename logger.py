@@ -19,7 +19,7 @@ def configure_logging():
             None
     """
     logging.basicConfig(
-        filename="logs.log",
+        filename="log.txt",
         level=logging.INFO,
         format="%(asctime)s - %(levelname)s - %(message)s",
     )
