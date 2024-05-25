@@ -124,7 +124,7 @@ dmypy.json
 .env
 
 # Local project files
-/home/ukeme/Desktop/bp/log.txt
+log.txt
 
 # JetBrains IDEs
 .idea/
