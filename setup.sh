@@ -22,8 +22,10 @@ apt-get update && apt-get install -y \
 # Install pipx if not already installed
 if ! command -v pipx &>/dev/null; then
 	echo "Installing pipx..."
-	python3 -m pip install --user pipx
-	python3 -m pipx ensurepath
+	sudo apt update
+	sudo apt install pipx
+	pipx ensurepath
+	sudo pipx ensurepath --global # optional to allow pipx actions with --global argument
 	# Add pipx to the current shell session
 	export PATH=$PATH:~/.local/bin
 fi
