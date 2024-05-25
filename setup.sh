@@ -13,17 +13,11 @@ apt-get update && apt-get install -y \
 # Install pipx if not already installed
 if ! command -v pipx &>/dev/null; then
 	echo "Installing pipx..."
-	apt update -y
-	python3 -m pip install --user pipx
-	python3 -m pipx ensurepath
+	sudo apt update -y
+	sudo apt install pipx
+	pipx ensurepath
 	sudo pipx ensurepath --global # optional to allow pipx actions with --global argument
-	# export PATH=$PATH:~/.local/bin
-	# export PATH=$PATH:/root/.local/bin
-
-	# # Add pipx to the PATH permanently
-	# echo "Adding pipx to the PATH permanently..."
-	# echo 'export PATH=$PATH:~/.local/bin' >>~/.bashrc
-	# echo 'export PATH=$PATH:/root/.local/bin' >>~/.bashrc
+	source ~/.bashrc
 fi
 
 # Navigate to the project directory
